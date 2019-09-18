@@ -14,7 +14,7 @@ after_success:
   - docker build -t deemitx/multi-server ./server
   - docker build -t deemitx/multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push deemitx/multi-client
+  - docker push nafzaltx/deemitx/multi-client
   - docker push deemitx/multi-nginx
   - docker push deemitx/multi-server
   - docker push deemitx/multi-worker
