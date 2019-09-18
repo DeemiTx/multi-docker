@@ -5,8 +5,8 @@ services:
 before_install:
   - docker build -t DeemiTx/react-test -f ./client/Dockerfile.dev ./client
 
-  script:
-    - docker run -e CI=true DeemiTx/react-test npm test
+script:
+  - docker run -e CI=true DeemiTx/react-test npm test
 
 after_success:
   - docker build -t DeemiTx/multi-client ./client
