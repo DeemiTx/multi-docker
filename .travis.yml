@@ -3,18 +3,18 @@ services:
   - docker
 
 before_install:
-  - docker build -t DeemiTx/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t deemitx/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true DeemiTx/react-test npm test
+  - docker run -e CI=true deemitx/react-test npm test
 
 after_success:
-  - docker build -t DeemiTx/multi-client ./client
-  - docker build -t DeemiTx/multi-nginx ./nginx
-  - docker build -t DeemiTx/multi-server ./server
-  - docker build -t DeemiTx/multi-worker ./worker
+  - docker build -t deemitx/multi-client ./client
+  - docker build -t deemitx/multi-nginx ./nginx
+  - docker build -t deemitx/multi-server ./server
+  - docker build -t deemitx/multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push DeemiTx/multi-client
-  - docker push DeemiTx/multi-nginx
-  - docker push DeemiTx/multi-server
-  - docker push DeemiTx/multi-worker
+  - docker push deemitx/multi-client
+  - docker push deemitx/multi-nginx
+  - docker push deemitx/multi-server
+  - docker push deemitx/multi-worker
